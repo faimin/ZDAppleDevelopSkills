@@ -18,6 +18,8 @@ iOS development AI agent skills collection
 - [Swift-UIKit-Skill](https://github.com/Lakr233/Swift-UIKit-Skill)
 - [MixMax Skills](https://github.com/MiniMax-AI/skills)
 ----
+- [app-store-connect-cli-skills](https://github.com/rudrankriyam/app-store-connect-cli-skills)
+----
 - [ios-dev-skills](https://github.com/12207480/ios-dev-skills)
 - [Swift-Concurrency-Agent-Skill](https://github.com/AvdLee/Swift-Concurrency-Agent-Skill): Swift并发编程Agent技能
 - [SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill): SwiftUI Agent技能
