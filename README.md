@@ -5,13 +5,14 @@ iOS development AI agent skills collection
 
 - [apple-docs-mcp](https://github.com/kimsungwhee/apple-docs-mcp): 苹果官方文档MCP
 - [string-catalog-mcp](https://github.com/onmyway133/string-catalog-mcp): Xcode国际化
+- [lanhu-mcp](https://github.com/MrDgbot/lanhu-mcp)
 
 # SKILLS
 
 - [superpowers](https://github.com/obra/superpowers): 一套行之有效的软件开发方法论
+- [gstack](https://github.com/garrytan/gstack)
 - [Get Shit Done](https://github.com/gsd-build/get-shit-done): 项目管理系统，快速创建一个项目
 - [gsd-sp-enhancement](https://github.com/yiixiahulun/gsd-sp-enhancement)
-- [gstack](https://github.com/garrytan/gstack)
 ----
 - [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill): 让AI写出来的UI更美观
 - [Super Skills](https://github.com/onmyway133/skills)
@@ -32,3 +33,5 @@ iOS development AI agent skills collection
 - [cc-switch](https://github.com/farion1231/cc-switch): 快速切换AI
 - [cc-connect](https://github.com/chenhg5/cc-connect): 在任何聊天工具里，远程操控你的本地 AI Agent
 - [ccx](https://github.com/BenedictKing/ccx): CCX是Claude、OpenAI Chat Codex Responses和Gemini的高性能AI API代理和协议翻译网关。它提供了一个统一的入口点、内置的网络管理、故障转移、多密钥管理、渠道编排和模型路由。
+- [AgentSkills](https://github.com/chrlsio/agent-skills) - agent skills管理器
+- [rtk](https://github.com/rtk-ai/rtk) - 降低LLM token消耗
