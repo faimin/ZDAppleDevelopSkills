@@ -121,7 +121,7 @@ All three skills should follow these conventions:
 
 ### Purpose
 
-Provide modern Swift guidance across Swift 5.0 through Swift 6.3, with emphasis on language evolution, concurrency, observation, Codable, Combine, interop, and migration choices.
+Provide modern Swift guidance across Swift 4.2 through Swift 6.3, with emphasis on language evolution, concurrency, observation, Codable, Combine, interop, and migration choices.
 
 ### Trigger Conditions
 
@@ -132,7 +132,7 @@ This skill should trigger when the task involves:
 - concurrency migration or actor isolation
 - Combine usage or migration
 - Codable model design and decoding strategy
-- Swift language version changes from 5.x to 6.x
+- Swift language version changes from 4.2 through 6.x
 - Swift and Objective-C interoperability
 
 ### SKILL.md Responsibilities
@@ -157,6 +157,7 @@ Create these reference files:
 - `references/observation-and-state.md`
 - `references/interoperability.md`
 - `references/diagnostics.md`
+- `references/whats-new-swift/swift-4.2.md`
 - `references/whats-new-swift/swift-5.0.md`
 - `references/whats-new-swift/swift-5.1.md`
 - `references/whats-new-swift/swift-5.2.md`
@@ -339,7 +340,7 @@ The design is successful if the resulting work produces:
 - three top-level skills under `MySKILLS/skills/`
 - one `SKILL.md` per skill with strong trigger descriptions
 - focused `references/` files instead of bloated main skills
-- explicit coverage for Swift 5.0 through 6.3 in `swift-modern`
+- explicit coverage for Swift 4.2 through 6.3 in `swift-modern`
 - explicit coverage for blocks, runtime, and retain-cycle issues in `objective-c-patterns`
 - explicit coverage for modern UIKit features from iOS 13 through iOS 26 in `uikit-modern`
 - naming and structure suitable for open-source distribution
