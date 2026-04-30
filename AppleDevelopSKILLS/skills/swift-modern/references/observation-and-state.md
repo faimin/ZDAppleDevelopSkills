@@ -34,6 +34,8 @@ final class CounterModel {
 
 ## State ownership tradeoffs
 - `@State`: view-local value owned by a single view instance.
+- For view-owned `@Observable` models, anchor the model lifetime in the owning view and pass `@Bindable` or direct references downward instead of recreating the model in child views.
+- `@StateObject`: use when the view owns an `ObservableObject`-based reference in older observation code.
 - `@Bindable`: view-facing binding into an `@Observable` model.
 - `@Environment`: shared dependencies or models injected down the tree.
 - Dedicated model type: shared mutable feature state with behavior and isolation.

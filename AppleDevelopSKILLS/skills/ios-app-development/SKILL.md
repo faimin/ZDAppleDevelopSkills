@@ -1,6 +1,6 @@
 ---
 name: ios-app-development
-description: Use when the task involves general iOS app development work, especially broad Swift, Objective-C, UIKit, mixed-language, project-structure, modernization, refactor, review, or feature-implementation requests that should first route into the repository's specialist iOS development skills.
+description: Use when the task involves general iOS app development work, especially broad Swift, SwiftUI, Objective-C, UIKit, mixed-language, project-structure, modernization, refactor, review, or feature-implementation requests that should first route into the repository's specialist iOS development skills.
 ---
 
 # iOS App Development
@@ -28,6 +28,7 @@ Route by the dominant problem shape:
 
 | Problem shape | Primary skill |
 | --- | --- |
+| SwiftUI screens, observation-driven UI state, and SwiftUI-first UI flows | `swift-modern` |
 | Modern Swift language behavior, concurrency, Combine, Codable, observation, Swift Testing, version-sensitive decisions | `swift-modern` |
 | Objective-C ownership, blocks, runtime behavior, KVC/KVO, swizzling, forwarding, mixed-language legacy concerns | `objective-c-patterns` |
 | UIKit screen construction, collection views, diffable data source, compositional layout, keyboard-safe layout, navigation, scenes, presentation | `uikit-modern` |
@@ -35,7 +36,7 @@ Route by the dominant problem shape:
 
 ## Triage Order
 
-1. Decide whether the request is primarily about language, UIKit UI work, Objective-C legacy behavior, or repository architecture.
+1. Decide whether the request is primarily about language, SwiftUI UI work, UIKit UI work, Objective-C legacy behavior, or repository architecture.
 2. If multiple layers are involved, identify the dominant layer before loading additional skills.
 3. Read the matching specialist skill before answering from memory.
 4. Load a second specialist skill only when the task genuinely spans two domains.

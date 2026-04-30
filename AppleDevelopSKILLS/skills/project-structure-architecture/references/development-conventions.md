@@ -48,7 +48,8 @@ Use this reference when defining app-layer coding conventions, review rules, or 
 - Prefer unidirectional data flow for complex features so ownership and mutation paths stay obvious.
 - In SwiftUI, choose the wrapper that matches ownership:
   - `@State` for local value state.
-  - `@StateObject` for view-owned reference state.
+  - For view-owned `@Observable` models, keep the model lifetime anchored in the owning view and pass bindings or references downward from that owner.
+  - `@StateObject` for view-owned reference state when the codebase still uses `ObservableObject`.
   - `@ObservedObject` or injected observable state when the view does not own the object.
   - `@Environment` or `@EnvironmentObject` only for broadly shared dependencies or app-level state.
 
