@@ -8,12 +8,14 @@ Use this reference when defining app-layer coding conventions, review rules, or 
 - Keep files small enough to review in one pass.
 - Use system APIs and language features before adding wrappers.
 - Treat concurrency, ownership, and naming as correctness issues, not style-only issues.
+- Default to the narrowest sensible access level; widen visibility only when a caller outside the local scope actually needs it.
+- Avoid force unwrapping unless the invariant is fully controlled and obvious at the call site.
 
 ## Naming
 
 - Use `PascalCase` for types, protocols, and file names that define a primary type.
 - Use `camelCase` for functions, properties, and local values.
-- Name booleans with `is`, `has`, `can`, or `should`.
+- Name booleans with is, has, can, or should.
 - Name protocols by role, not by implementation detail.
 - Match file names to the main exported type or feature entry point.
 
@@ -72,3 +74,4 @@ Use this reference when defining app-layer coding conventions, review rules, or 
 - If ownership of mutable state is unclear, simplify the flow before adding features.
 - If new Swift code introduces closures where async APIs would work, treat that as a routing smell.
 - If resources or strings are referenced from `Bundle.main` by habit rather than by ownership, treat that as a modularity smell.
+- If a proposed force unwrap replaces clear control flow, reject it and make the invariant explicit instead.
