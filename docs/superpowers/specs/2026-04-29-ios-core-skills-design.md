@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create three distributable open-source skills under `MySKILLS/skills/`:
+Create three distributable open-source skills under `AppleDevelopSKILLS/skills/`:
 
 1. `swift-modern`
 2. `objective-c-patterns`
@@ -36,7 +36,7 @@ For newer platform details, the implementation may additionally verify behavior 
 Use a distributable skill layout:
 
 ```text
-MySKILLS/
+AppleDevelopSKILLS/
 └── skills/
     ├── swift-modern/
     │   ├── SKILL.md
@@ -337,7 +337,7 @@ Do not copy their naming, claims, or exact wording wholesale. Rebuild the struct
 
 The design is successful if the resulting work produces:
 
-- three top-level skills under `MySKILLS/skills/`
+- three top-level skills under `AppleDevelopSKILLS/skills/`
 - one `SKILL.md` per skill with strong trigger descriptions
 - focused `references/` files instead of bloated main skills
 - explicit coverage for Swift 4.2 through 6.3 in `swift-modern`

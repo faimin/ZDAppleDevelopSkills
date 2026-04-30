@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build three distributable open-source skills under `MySKILLS/skills/` for modern Swift, Objective-C patterns, and modern UIKit, with routed `references/` content and starter eval prompts.
+**Goal:** Build three distributable open-source skills under `AppleDevelopSKILLS/skills/` for modern Swift, Objective-C patterns, and modern UIKit, with routed `references/` content and starter eval prompts.
 
 **Architecture:** Each skill is a router-style package with a compact `SKILL.md` for trigger conditions, workflow, diagnostics, and checklists, plus focused `references/` files for deeper guidance. Verification is structural rather than compiled: frontmatter validity, naming consistency, reference coverage, and eval prompt presence are all checked from the filesystem.
 
@@ -13,23 +13,23 @@
 ### Task 1: Scaffold the skill packages
 
 **Files:**
-- Create: `MySKILLS/skills/swift-modern/SKILL.md`
-- Create: `MySKILLS/skills/swift-modern/evals/evals.json`
-- Create: `MySKILLS/skills/objective-c-patterns/SKILL.md`
-- Create: `MySKILLS/skills/objective-c-patterns/evals/evals.json`
-- Create: `MySKILLS/skills/uikit-modern/SKILL.md`
-- Create: `MySKILLS/skills/uikit-modern/evals/evals.json`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/SKILL.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/evals/evals.json`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/SKILL.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/evals/evals.json`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/SKILL.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/evals/evals.json`
 
 - [ ] **Step 1: Create the directory tree**
 
 Run:
 ```bash
-mkdir -p MySKILLS/skills/swift-modern/references/whats-new-swift
-mkdir -p MySKILLS/skills/swift-modern/evals
-mkdir -p MySKILLS/skills/objective-c-patterns/references
-mkdir -p MySKILLS/skills/objective-c-patterns/evals
-mkdir -p MySKILLS/skills/uikit-modern/references/ios-version-features
-mkdir -p MySKILLS/skills/uikit-modern/evals
+mkdir -p AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift
+mkdir -p AppleDevelopSKILLS/skills/swift-modern/evals
+mkdir -p AppleDevelopSKILLS/skills/objective-c-patterns/references
+mkdir -p AppleDevelopSKILLS/skills/objective-c-patterns/evals
+mkdir -p AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features
+mkdir -p AppleDevelopSKILLS/skills/uikit-modern/evals
 ```
 Expected: directories exist with no errors.
 
@@ -37,7 +37,7 @@ Expected: directories exist with no errors.
 
 Each file must start with exact YAML frontmatter and section headings matching the chosen skill boundary.
 
-`MySKILLS/skills/swift-modern/SKILL.md`
+`AppleDevelopSKILLS/skills/swift-modern/SKILL.md`
 ```md
 ---
 name: swift-modern
@@ -55,7 +55,7 @@ description: Use when writing, reviewing, or migrating Swift code across Swift 4
 ## Common Mistakes
 ```
 
-`MySKILLS/skills/objective-c-patterns/SKILL.md`
+`AppleDevelopSKILLS/skills/objective-c-patterns/SKILL.md`
 ```md
 ---
 name: objective-c-patterns
@@ -73,7 +73,7 @@ description: Use when writing or reviewing Objective-C, debugging retain cycles,
 ## Common Mistakes
 ```
 
-`MySKILLS/skills/uikit-modern/SKILL.md`
+`AppleDevelopSKILLS/skills/uikit-modern/SKILL.md`
 ```md
 ---
 name: uikit-modern
@@ -95,7 +95,7 @@ description: Use when building, reviewing, or modernizing UIKit screens for iOS 
 
 Use this exact JSON shape in each `evals/evals.json`:
 
-`MySKILLS/skills/swift-modern/evals/evals.json`
+`AppleDevelopSKILLS/skills/swift-modern/evals/evals.json`
 ```json
 {
   "skill_name": "swift-modern",
@@ -122,7 +122,7 @@ Use this exact JSON shape in each `evals/evals.json`:
 }
 ```
 
-`MySKILLS/skills/objective-c-patterns/evals/evals.json`
+`AppleDevelopSKILLS/skills/objective-c-patterns/evals/evals.json`
 ```json
 {
   "skill_name": "objective-c-patterns",
@@ -149,7 +149,7 @@ Use this exact JSON shape in each `evals/evals.json`:
 }
 ```
 
-`MySKILLS/skills/uikit-modern/evals/evals.json`
+`AppleDevelopSKILLS/skills/uikit-modern/evals/evals.json`
 ```json
 {
   "skill_name": "uikit-modern",
@@ -180,7 +180,7 @@ Use this exact JSON shape in each `evals/evals.json`:
 
 Run:
 ```bash
-rtk find MySKILLS/skills -maxdepth 3 -type f | sort
+rtk find AppleDevelopSKILLS/skills -maxdepth 3 -type f | sort
 ```
 Expected: the six scaffold files are present under the three skill packages.
 
@@ -188,7 +188,7 @@ Expected: the six scaffold files are present under the three skill packages.
 
 Run:
 ```bash
-git add MySKILLS/skills
+git add AppleDevelopSKILLS/skills
 git commit -m "feat(skills): scaffold iOS core skill packages"
 ```
 Expected: commit succeeds and only adds the new skill-package skeleton files.
@@ -196,30 +196,30 @@ Expected: commit succeeds and only adds the new skill-package skeleton files.
 ### Task 2: Author `swift-modern`
 
 **Files:**
-- Modify: `MySKILLS/skills/swift-modern/SKILL.md`
-- Create: `MySKILLS/skills/swift-modern/references/language-evolution-overview.md`
-- Create: `MySKILLS/skills/swift-modern/references/concurrency.md`
-- Create: `MySKILLS/skills/swift-modern/references/combine.md`
-- Create: `MySKILLS/skills/swift-modern/references/codable.md`
-- Create: `MySKILLS/skills/swift-modern/references/observation-and-state.md`
-- Create: `MySKILLS/skills/swift-modern/references/interoperability.md`
-- Create: `MySKILLS/skills/swift-modern/references/diagnostics.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-4.2.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.0.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.1.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.2.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.3.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.4.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.5.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.6.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.7.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.8.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.9.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-5.10.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-6.0.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-6.1.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-6.2.md`
-- Create: `MySKILLS/skills/swift-modern/references/whats-new-swift/swift-6.3.md`
+- Modify: `AppleDevelopSKILLS/skills/swift-modern/SKILL.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/language-evolution-overview.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/concurrency.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/combine.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/codable.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/observation-and-state.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/interoperability.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/diagnostics.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-4.2.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.0.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.1.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.2.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.3.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.4.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.5.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.6.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.7.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.8.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.9.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-5.10.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-6.0.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-6.1.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-6.2.md`
+- Create: `AppleDevelopSKILLS/skills/swift-modern/references/whats-new-swift/swift-6.3.md`
 
 - [ ] **Step 1: Expand `swift-modern/SKILL.md` into a router-style skill**
 
@@ -335,9 +335,9 @@ Apply this scope:
 
 Run:
 ```bash
-rtk rg -n "^name: swift-modern$|^## When to Use$|^## Topic Router$|^## Correctness Checklist$" MySKILLS/skills/swift-modern/SKILL.md
-rtk find MySKILLS/skills/swift-modern/references -type f | sort
-rtk rg -n "Swift 4.2|Swift 5.5|Swift 6.0|Swift 6.3|Sendable|Codable|Combine" MySKILLS/skills/swift-modern
+rtk rg -n "^name: swift-modern$|^## When to Use$|^## Topic Router$|^## Correctness Checklist$" AppleDevelopSKILLS/skills/swift-modern/SKILL.md
+rtk find AppleDevelopSKILLS/skills/swift-modern/references -type f | sort
+rtk rg -n "Swift 4.2|Swift 5.5|Swift 6.0|Swift 6.3|Sendable|Codable|Combine" AppleDevelopSKILLS/skills/swift-modern
 ```
 Expected: headings match, all planned reference files exist, and core coverage keywords are present.
 
@@ -345,7 +345,7 @@ Expected: headings match, all planned reference files exist, and core coverage k
 
 Run:
 ```bash
-git add MySKILLS/skills/swift-modern
+git add AppleDevelopSKILLS/skills/swift-modern
 git commit -m "feat(skills): add swift-modern skill"
 ```
 Expected: commit succeeds with the Swift skill package only.
@@ -353,14 +353,14 @@ Expected: commit succeeds with the Swift skill package only.
 ### Task 3: Author `objective-c-patterns`
 
 **Files:**
-- Modify: `MySKILLS/skills/objective-c-patterns/SKILL.md`
-- Create: `MySKILLS/skills/objective-c-patterns/references/blocks-and-memory.md`
-- Create: `MySKILLS/skills/objective-c-patterns/references/runtime-and-swizzling.md`
-- Create: `MySKILLS/skills/objective-c-patterns/references/message-forwarding.md`
-- Create: `MySKILLS/skills/objective-c-patterns/references/kvc-kvo-and-associations.md`
-- Create: `MySKILLS/skills/objective-c-patterns/references/threading-and-gcd.md`
-- Create: `MySKILLS/skills/objective-c-patterns/references/objc-swift-interop.md`
-- Create: `MySKILLS/skills/objective-c-patterns/references/diagnostics.md`
+- Modify: `AppleDevelopSKILLS/skills/objective-c-patterns/SKILL.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/references/blocks-and-memory.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/references/runtime-and-swizzling.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/references/message-forwarding.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/references/kvc-kvo-and-associations.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/references/threading-and-gcd.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/references/objc-swift-interop.md`
+- Create: `AppleDevelopSKILLS/skills/objective-c-patterns/references/diagnostics.md`
 
 - [ ] **Step 1: Expand `objective-c-patterns/SKILL.md` into a router-style skill**
 
@@ -438,9 +438,9 @@ diagnostics.md
 
 Run:
 ```bash
-rtk rg -n "^name: objective-c-patterns$|^## Topic Router$|^## Retain-Cycle Workflow$|^## Quick Diagnostics$" MySKILLS/skills/objective-c-patterns/SKILL.md
-rtk find MySKILLS/skills/objective-c-patterns/references -type f | sort
-rtk rg -n "block|retain cycle|swizzling|forwardInvocation|KVO|associated object|EXC_BAD_ACCESS" MySKILLS/skills/objective-c-patterns
+rtk rg -n "^name: objective-c-patterns$|^## Topic Router$|^## Retain-Cycle Workflow$|^## Quick Diagnostics$" AppleDevelopSKILLS/skills/objective-c-patterns/SKILL.md
+rtk find AppleDevelopSKILLS/skills/objective-c-patterns/references -type f | sort
+rtk rg -n "block|retain cycle|swizzling|forwardInvocation|KVO|associated object|EXC_BAD_ACCESS" AppleDevelopSKILLS/skills/objective-c-patterns
 ```
 Expected: headings match, all reference files exist, and core coverage keywords are present.
 
@@ -448,7 +448,7 @@ Expected: headings match, all reference files exist, and core coverage keywords 
 
 Run:
 ```bash
-git add MySKILLS/skills/objective-c-patterns
+git add AppleDevelopSKILLS/skills/objective-c-patterns
 git commit -m "feat(skills): add objective-c-patterns skill"
 ```
 Expected: commit succeeds with the Objective-C skill package only.
@@ -456,22 +456,22 @@ Expected: commit succeeds with the Objective-C skill package only.
 ### Task 4: Author `uikit-modern`
 
 **Files:**
-- Modify: `MySKILLS/skills/uikit-modern/SKILL.md`
-- Create: `MySKILLS/skills/uikit-modern/references/collection-view-modernization.md`
-- Create: `MySKILLS/skills/uikit-modern/references/diffable-data-source.md`
-- Create: `MySKILLS/skills/uikit-modern/references/compositional-layout.md`
-- Create: `MySKILLS/skills/uikit-modern/references/list-configurations.md`
-- Create: `MySKILLS/skills/uikit-modern/references/keyboard-and-input.md`
-- Create: `MySKILLS/skills/uikit-modern/references/view-controller-lifecycle-and-scenes.md`
-- Create: `MySKILLS/skills/uikit-modern/references/navigation-and-presentation.md`
-- Create: `MySKILLS/skills/uikit-modern/references/diagnostics.md`
-- Create: `MySKILLS/skills/uikit-modern/references/ios-version-features/ios-13.md`
-- Create: `MySKILLS/skills/uikit-modern/references/ios-version-features/ios-14.md`
-- Create: `MySKILLS/skills/uikit-modern/references/ios-version-features/ios-15.md`
-- Create: `MySKILLS/skills/uikit-modern/references/ios-version-features/ios-16.md`
-- Create: `MySKILLS/skills/uikit-modern/references/ios-version-features/ios-17.md`
-- Create: `MySKILLS/skills/uikit-modern/references/ios-version-features/ios-18.md`
-- Create: `MySKILLS/skills/uikit-modern/references/ios-version-features/ios-26.md`
+- Modify: `AppleDevelopSKILLS/skills/uikit-modern/SKILL.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/collection-view-modernization.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/diffable-data-source.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/compositional-layout.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/list-configurations.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/keyboard-and-input.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/view-controller-lifecycle-and-scenes.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/navigation-and-presentation.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/diagnostics.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features/ios-13.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features/ios-14.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features/ios-15.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features/ios-16.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features/ios-17.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features/ios-18.md`
+- Create: `AppleDevelopSKILLS/skills/uikit-modern/references/ios-version-features/ios-26.md`
 
 - [ ] **Step 1: Expand `uikit-modern/SKILL.md` into a router-style skill**
 
@@ -576,9 +576,9 @@ Apply this scope:
 
 Run:
 ```bash
-rtk rg -n "^name: uikit-modern$|^## Task Workflow$|^## Topic Router$|^## Modernization Checklist$" MySKILLS/skills/uikit-modern/SKILL.md
-rtk find MySKILLS/skills/uikit-modern/references -type f | sort
-rtk rg -n "UICollectionViewCompositionalLayout|NSDiffableDataSourceSnapshot|UICollectionViewDiffableDataSource|UIKeyboardLayoutGuide|UICollectionLayoutListConfiguration" MySKILLS/skills/uikit-modern
+rtk rg -n "^name: uikit-modern$|^## Task Workflow$|^## Topic Router$|^## Modernization Checklist$" AppleDevelopSKILLS/skills/uikit-modern/SKILL.md
+rtk find AppleDevelopSKILLS/skills/uikit-modern/references -type f | sort
+rtk rg -n "UICollectionViewCompositionalLayout|NSDiffableDataSourceSnapshot|UICollectionViewDiffableDataSource|UIKeyboardLayoutGuide|UICollectionLayoutListConfiguration" AppleDevelopSKILLS/skills/uikit-modern
 ```
 Expected: headings match, all reference files exist, and the modern UIKit feature set is explicitly covered.
 
@@ -586,7 +586,7 @@ Expected: headings match, all reference files exist, and the modern UIKit featur
 
 Run:
 ```bash
-git add MySKILLS/skills/uikit-modern
+git add AppleDevelopSKILLS/skills/uikit-modern
 git commit -m "feat(skills): add uikit-modern skill"
 ```
 Expected: commit succeeds with the UIKit skill package only.
@@ -594,17 +594,17 @@ Expected: commit succeeds with the UIKit skill package only.
 ### Task 5: Final consistency pass
 
 **Files:**
-- Modify: `MySKILLS/skills/swift-modern/SKILL.md`
-- Modify: `MySKILLS/skills/objective-c-patterns/SKILL.md`
-- Modify: `MySKILLS/skills/uikit-modern/SKILL.md`
-- Modify: `MySKILLS/skills/*/evals/evals.json`
+- Modify: `AppleDevelopSKILLS/skills/swift-modern/SKILL.md`
+- Modify: `AppleDevelopSKILLS/skills/objective-c-patterns/SKILL.md`
+- Modify: `AppleDevelopSKILLS/skills/uikit-modern/SKILL.md`
+- Modify: `AppleDevelopSKILLS/skills/*/evals/evals.json`
 
 - [ ] **Step 1: Run a cross-skill terminology and structure audit**
 
 Run:
 ```bash
-rtk rg -n "^name: |^description: |^# |^## " MySKILLS/skills/*/SKILL.md
-rtk rg -n "TODO|TBD|FIXME|XXX" MySKILLS/skills
+rtk rg -n "^name: |^description: |^# |^## " AppleDevelopSKILLS/skills/*/SKILL.md
+rtk rg -n "TODO|TBD|FIXME|XXX" AppleDevelopSKILLS/skills
 ```
 Expected: each skill has clean frontmatter and no placeholder text.
 
@@ -612,8 +612,8 @@ Expected: each skill has clean frontmatter and no placeholder text.
 
 Run:
 ```bash
-rtk rg -n "references/" MySKILLS/skills/*/SKILL.md
-rtk find MySKILLS/skills -type f | sort
+rtk rg -n "references/" AppleDevelopSKILLS/skills/*/SKILL.md
+rtk find AppleDevelopSKILLS/skills -type f | sort
 ```
 Expected: every referenced file path in each `SKILL.md` exists on disk.
 
@@ -629,7 +629,7 @@ Use this checklist:
 
 Run:
 ```bash
-git add MySKILLS/skills
+git add AppleDevelopSKILLS/skills
 git commit -m "test(skills): add eval prompts and consistency pass"
 ```
 Expected: commit succeeds with only final documentation cleanup and eval prompt adjustments.
