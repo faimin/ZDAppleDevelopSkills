@@ -4,7 +4,7 @@
 
 This file defines repository-local operating rules.
 
-Reusable Apple and iOS engineering guidance lives in `AppleDevelopSKILLS/skills/` and should not be duplicated here unless the rule is genuinely repository-specific.
+Reusable Apple and iOS engineering guidance lives in `skills/` and should not be duplicated here unless the rule is genuinely repository-specific.
 
 ## 2. Repository Workflow
 

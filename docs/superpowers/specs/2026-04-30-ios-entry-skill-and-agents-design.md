@@ -6,7 +6,7 @@ Add one broad entry-point skill so general Apple and iOS development requests re
 
 ## Current Context
 
-The repository already contains four specialized open-source skills under `AppleDevelopSKILLS/skills/`:
+The repository already contains four specialized open-source skills under `skills/`:
 
 - `swift-modern`
 - `objective-c-patterns`
@@ -102,7 +102,7 @@ The repository should gain one broad entry-point skill named `ios-app-developmen
 ### Location
 
 ```text
-AppleDevelopSKILLS/
+
 └── skills/
     └── ios-app-development/
         └── SKILL.md
@@ -354,7 +354,7 @@ For example: prefer existing project patterns and ask when requirements or imple
 
 #### 1. Scope
 
-State that this file defines repository-local working rules. Reusable Apple and iOS engineering guidance lives in `AppleDevelopSKILLS/skills/`.
+State that this file defines repository-local working rules. Reusable Apple and iOS engineering guidance lives in `skills/`.
 
 #### 2. Repository Workflow
 
@@ -450,7 +450,7 @@ This design is successful if:
 
 The implementation plan should be limited to:
 
-1. add `AppleDevelopSKILLS/skills/ios-app-development/SKILL.md`
+1. add `skills/ios-app-development/SKILL.md`
 2. update the root `AGENTS.md` to the slimmer structure
 3. verify that the new `AGENTS.md` clearly separates repository policy from skill responsibility
 

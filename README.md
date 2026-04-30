@@ -1,9 +1,10 @@
-# ZDAICollection
+# AppleDevelopSKILLS
+
 iOS development AI agent skills collection
 
 ## 自建 iOS Skills 使用说明
 
-当前仓库内置的 iOS Skills 位于 `AppleDevelopSKILLS/skills/`，建议把它们理解为一套分层路由：
+当前仓库内置的 iOS Skills 位于 `skills/`，建议把它们理解为一套分层路由：
 
 - `ios-app-development`：总入口 Skill
 - `swift-modern`：现代 Swift 语言与应用代码
@@ -119,7 +120,7 @@ iOS development AI agent skills collection
 当前仓库里的职责边界是：
 
 - `AGENTS.md`：仓库级规则、工作流、安全约束、测试要求、Skill 路由规则
-- `AppleDevelopSKILLS/skills/`：可复用的 Apple / iOS 领域知识与决策规则
+- `skills/`：可复用的 Apple / iOS 领域知识与决策规则
 
 换句话说，通用 iOS 规范不要继续堆回 `AGENTS.md`，优先沉淀到对应 Skill 里。
 
