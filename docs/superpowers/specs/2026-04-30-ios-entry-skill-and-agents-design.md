@@ -221,6 +221,135 @@ The following material should move out of the root policy file because it is reu
 5. Skill Routing
 ```
 
+## `AGENTS.md` Content Migration Map
+
+The current root `AGENTS.md` contains a mix of content that should be split three ways:
+
+- keep in `AGENTS.md` because it is a repository or quality-policy concern
+- move into an existing specialist skill because it is reusable Apple and iOS knowledge
+- remove entirely because it is example or placeholder material rather than stable policy
+
+### Section 1: Project Overview
+
+- Keep only real repository facts that are actually maintained in this repo.
+- Remove placeholders such as project name and generic folder examples if they are not authoritative.
+- Do not move placeholder project metadata into skills.
+
+### Section 2: Development Environment And Build
+
+- Keep concise local environment expectations in `AGENTS.md`.
+- Do not move local Xcode or workflow expectations into skills unless they become reusable open-source guidance, which is not the current goal.
+
+### Section 3: Swift Code Style
+
+Move most of this section out of `AGENTS.md`:
+
+- naming rules such as `PascalCase`, `camelCase`, and boolean prefixes -> `project-structure-architecture/references/development-conventions.md`
+- optional-handling and force-unwrap avoidance guidance -> `project-structure-architecture/references/development-conventions.md` and `swift-modern`
+- state-wrapper ownership guidance such as `@State` versus `@ObservedObject` -> `swift-modern/references/observation-and-state.md`
+- general comment philosophy -> `project-structure-architecture/references/development-conventions.md`
+
+Keep only genuinely local rules, if still desired:
+
+- niche project-specific Objective-C property getter initialization style can stay in `AGENTS.md` if the team treats it as a local rule
+- otherwise it should be dropped rather than turned into open-source skill content
+
+### Section 4: UI And UX Guidance
+
+Split this section carefully:
+
+- keep Figma-first workflow, design token usage, and "do not hardcode design values" in `AGENTS.md` because those are project workflow constraints
+- remove generic SwiftUI layout advice such as "prefer `VStack` or `HStack`" from `AGENTS.md`; it is too generic to be useful as a repository policy
+
+No current existing skill needs to absorb the design-system or Figma rule, because that is not reusable open-source iOS domain guidance.
+
+### Section 5: Architecture
+
+Move this section to:
+
+- `project-structure-architecture/references/architecture-selection.md`
+
+This content is already part of the specialist-skill scope and should not remain duplicated in `AGENTS.md`.
+
+### Section 6: Dependency Management
+
+Move this section to:
+
+- `project-structure-architecture/references/package-management.md`
+
+The root policy file may retain only a short project-level preference such as "prefer the repository default package strategy unless the task justifies a deviation."
+
+### Section 7: Dependency Injection
+
+Move this section to:
+
+- `project-structure-architecture/references/library-selection.md`
+
+This is reusable dependency-selection guidance, not repository-local policy.
+
+### Section 8: Network And Data
+
+Split this section across existing skills:
+
+- Swift async and concurrency-first API guidance -> `swift-modern/references/concurrency.md`
+- Combine guidance -> `swift-modern/references/combine.md`
+- Codable modeling and resilient decoding -> `swift-modern/references/codable.md`
+- Objective-C callback and block-based interoperability -> `objective-c-patterns`
+- Alamofire, ReerCodable, SmartCodable, and package-manager-specific model-library choices -> `project-structure-architecture/references/library-selection.md` and `references/package-management.md`
+
+Keep in `AGENTS.md` only if the repository wants to enforce a quality bar such as:
+
+- network requests must surface errors explicitly
+
+### Section 9: Layout
+
+Move this section to existing skills:
+
+- UIKit and Auto Layout API preferences -> `uikit-modern`
+- SnapKit selection guidance -> `project-structure-architecture/references/library-selection.md`
+
+### Section 10: Reactive Programming And Utility Libraries
+
+Move this section to existing skills:
+
+- Combine -> `swift-modern/references/combine.md`
+- ReactiveObjC and BlocksKit -> `project-structure-architecture/references/library-selection.md`
+- block-based ownership implications -> `objective-c-patterns`
+
+### Section 11: Testing Guidance
+
+Split this section:
+
+- framework-level modern Swift testing style -> `swift-modern/references/swift-testing.md`
+- project quality-bar expectations such as "new business logic needs unit tests" and "critical paths need UI tests" -> keep in `AGENTS.md`
+
+The test-file placement rule may stay in `AGENTS.md` if it is a repository convention, or move into `project-structure-architecture` if the goal is reusable structure guidance. The preferred default is to keep it in `AGENTS.md` when it reflects the repo's quality policy.
+
+### Section 12: Workflow And Commits
+
+- Keep in `AGENTS.md`
+
+This is repository-local process and should not move to skills.
+
+### Section 13: Security Constraints
+
+- Keep in `AGENTS.md`
+
+This is repository-local and quality-sensitive policy.
+
+### Section 14: Example Tasks
+
+- Remove from `AGENTS.md`
+- Do not move into the skills as-is
+
+These examples are neither durable repository policy nor particularly useful reusable skill content once the skill system becomes the main routing mechanism.
+
+### Section 15: Final Tip
+
+- Keep only a short version in `AGENTS.md`
+
+For example: prefer existing project patterns and ask when requirements or implementation constraints are unclear.
+
 ### Recommended Section Intent
 
 #### 1. Scope
@@ -255,6 +384,36 @@ Explicitly state:
 - use `ios-app-development` first for Apple and iOS feature work
 - let that skill route into the specialist skills
 - use the specialist skill directly only when the task is already clearly scoped to that area
+
+## Existing Skill Touch-Ups Needed
+
+Most of the target material is already covered by the current skills, but a few small additions should be made during implementation so the AGENTS cleanup does not create gaps.
+
+### `project-structure-architecture`
+
+Add or confirm the following in `references/development-conventions.md`:
+
+- default access-control guidance
+- explicit avoidance of unnecessary force unwraps
+- the repository's boolean-naming rule in a concise reusable form
+
+This file already covers naming, comments, localization, resource bundles, concurrency-first defaults, and review heuristics. It is the natural home for the remaining generic code-convention material.
+
+### `swift-modern`
+
+Add or confirm the following in `references/observation-and-state.md`:
+
+- an explicit note about `@ObservedObject` for codebases that still mix older observation patterns with modern SwiftUI-era code
+
+Its existing references already cover concurrency, Combine, Codable, Swift Testing, and state ownership, so no structural change is needed.
+
+### `uikit-modern`
+
+No major addition is required for this AGENTS cleanup. It already covers the UIKit-specific layout and interaction preferences that should leave `AGENTS.md`.
+
+### `objective-c-patterns`
+
+No major addition is required for this AGENTS cleanup. It already covers blocks, memory, runtime behavior, category constraints, and mixed-language boundaries.
 
 ## Responsibilities Split
 
