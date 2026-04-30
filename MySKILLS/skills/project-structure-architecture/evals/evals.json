@@ -1,0 +1,47 @@
+{
+  "skill_name": "project-structure-architecture",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I am starting a new iOS app with SwiftUI-first screens, a few legacy UIKit flows, services, models, and assets. Propose a clean project structure so features, shared services, and resources stay easy to navigate as the app grows.",
+      "expected_output": "Routes to project-structure guidance covering feature boundaries, shared layers, SwiftUI/UIKit coexistence, and scalable folder organization.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "For an iOS codebase with some simple screens and one complex multi-step payment flow, should I use MVVM everywhere or mix in TCA or Redux for the complicated area? Explain the architecture choice and the boundary between them.",
+      "expected_output": "Routes to architecture-selection guidance that recommends lightweight patterns for simple flows and TCA or Redux for complex stateful features, including criteria for splitting boundaries.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "This is an Objective-C-heavy iOS app with a lot of UIKit, ReactiveObjC, BlocksKit, Masonry, and ZDMediator. What ecosystem library choices and integration conventions should we keep consistent, and if we still use CocoaPods should we prefer the KLSpecs source?",
+      "expected_output": "Routes to Objective-C ecosystem guidance covering recommended library choices, consistency rules for legacy Objective-C modules, and the preference for the KLSpecs CocoaPods source when Pods are used.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Our team may use Swift Package Manager for new modules but still has some CocoaPods-based targets. Which dependency manager should be preferred by default, and what custom Pod source should be configured when CocoaPods is unavoidable?",
+      "expected_output": "Routes to dependency-management guidance that prefers Swift Package Manager by default and calls out the required KLSpecs CocoaPods source for Pod-based integrations.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "When designing a Swift networking API, should closures or async/await be exposed by default? We may still need Combine and callback adapters, but I want the default public API direction to be explicit.",
+      "expected_output": "Routes to API-design guidance that prefers async/await as the default Swift-facing interface while acknowledging when closure or Combine adapters should still be provided.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "If this app uses Swift Package Manager, which model parsing library should we standardize on? If another target still uses CocoaPods, should Swift models and Objective-C models use different parsing libraries?",
+      "expected_output": "Routes to package-management and library-selection guidance covering ReerCodable for SPM, SmartCodable for CocoaPods-based Swift models, and YYModel for CocoaPods-based Objective-C models.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "For a segmented paging screen, should the Swift module use JXSegmentedView and the Objective-C module use JXCategoryView? Also, should feature assets and strings stay in the module bundle or the main bundle?",
+      "expected_output": "Routes to library and structure guidance that recommends JXSegmentedView for Swift, JXCategoryView for Objective-C, `.xcstrings` catalogs, and feature-owned resource bundles instead of defaulting to the main bundle.",
+      "files": []
+    }
+  ]
+}

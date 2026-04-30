@@ -1,0 +1,29 @@
+{
+  "skill_name": "swift-modern",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this Swift networking layer and tell me whether it should keep Combine or migrate part of it to async/await. Also flag any Sendable or actor isolation issues.",
+      "expected_output": "Routes to Combine, concurrency, and diagnostics guidance with migration recommendations.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need a Codable model for an API where keys are snake_case, some dates are ISO8601, and a few fields are nullable or inconsistent types. Show the safest decoding strategy.",
+      "expected_output": "Routes to Codable guidance and resilient decoding patterns.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "What changed between Swift 4.2, 5.5, and 6.2 that matters for a legacy app moving to modern concurrency?",
+      "expected_output": "Routes to version timeline and migration references.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Rewrite these legacy XCTest checks using Swift Testing and explain whether @Test, #expect, #require, parameterized cases, or async actor tests are the better fit.",
+      "expected_output": "Routes to Swift Testing guidance, covers modern expectations and migration choices, and recommends parameterization or async actor-aware patterns where appropriate.",
+      "files": []
+    }
+  ]
+}
