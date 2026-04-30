@@ -1,0 +1,23 @@
+{
+  "skill_name": "objective-c-patterns",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This Objective-C view controller leaks after I add a block-based callback. Show me where the retain cycle probably is and how to rewrite it safely.",
+      "expected_output": "Routes to blocks, memory, and retain-cycle diagnostics guidance.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need to swizzle a UIKit method for analytics. What are the runtime risks, and what is the safest implementation pattern?",
+      "expected_output": "Routes to runtime, swizzling, and diagnostics guidance with safety constraints.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Explain how Objective-C message forwarding works and when to use forwarding instead of just implementing the selector directly.",
+      "expected_output": "Routes to message forwarding guidance.",
+      "files": []
+    }
+  ]
+}

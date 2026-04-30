@@ -1,0 +1,23 @@
+{
+  "skill_name": "uikit-modern",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Refactor this legacy collection view controller from manual flow layout and reloadData calls to a modern UIKit approach.",
+      "expected_output": "Routes to collection view modernization, diffable data source, and compositional layout guidance.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "My form screen jumps under the keyboard. Show me the modern UIKit way to pin content above the keyboard on recent iOS versions.",
+      "expected_output": "Routes to keyboard and input guidance including UIKeyboardLayoutGuide.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "What UIKit features from iOS 13 onward should I use for a settings screen with list cells, accessories, and contextual actions?",
+      "expected_output": "Routes to list configuration and version feature guidance.",
+      "files": []
+    }
+  ]
+}
