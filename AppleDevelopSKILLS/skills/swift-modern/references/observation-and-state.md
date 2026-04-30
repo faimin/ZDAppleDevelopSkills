@@ -9,7 +9,7 @@ Use this file when the question is about state ownership in SwiftUI-era code, es
 - Coordinating state changes with Combine streams or async tasks.
 
 ## Preferred modern choices
-- Prefer `@Observable` for new observation models when the deployment target and codebase support it.
+- Prefer @Observable for new observation models when the deployment target and codebase support it.
 - Keep state ownership explicit: view-local state stays local, shared model state lives in a dedicated observable type, and app-wide mutable state gets a clear isolation boundary.
 - Prefer `@MainActor` on UI-owned observable models that mutate view state.
 - Prefer async tasks for request-response workflows and use Combine only when the reactive composition itself is still valuable.
@@ -37,6 +37,7 @@ final class CounterModel {
 - `@Bindable`: view-facing binding into an `@Observable` model.
 - `@Environment`: shared dependencies or models injected down the tree.
 - Dedicated model type: shared mutable feature state with behavior and isolation.
+- @ObservedObject: use when the view does not own the observable reference and the codebase still uses ObservableObject-based models.
 
 Choose the narrowest owner that matches the lifecycle. Shared state that outlives one view should not be rebuilt as view-local state.
 
