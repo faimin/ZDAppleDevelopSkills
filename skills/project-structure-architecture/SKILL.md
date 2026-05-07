@@ -17,7 +17,6 @@ description: Use when organizing or standardizing an Apple app repository, choos
 - Prefer SwiftUI-first organization, with UIKit isolated behind explicit legacy, bridge, or host boundaries.
 - Prefer `async`/`await` and structured concurrency for new Swift APIs; do not introduce new closure-first surfaces unless bridging older SDKs or Objective-C code.
 - Prefer SPM for first-party modules and third-party dependencies; use CocoaPods deliberately and record the constraint that justifies it.
-- In CocoaPods ecosystems that already depend on KuaiLiao specs, prefer the source `https://github.com/KuaiLiao/KLSpecs.git`.
 - Choose the smallest architecture that preserves state clarity, testability, and ownership boundaries.
 - Prefer Apple frameworks or existing repo utilities before adding a new third-party dependency.
 - Keep guidance app-first and open-source generic; do not assume proprietary backend, analytics, or internal platform layers.

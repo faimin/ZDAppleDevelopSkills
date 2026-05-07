@@ -77,39 +77,8 @@ description: Use when writing, reviewing, or migrating Swift application code ac
 - Bridging Objective-C callbacks into async code without single-resume guarantees, cancellation handling, or queue expectations.
 - Marking whole types `@objcMembers` when only a few selectors must cross the Objective-C boundary.
 - Leaving non-polymorphic classes open and indexing directly into collections without making the safety contract explicit.
+- Wrapping view expressions in `AnyView` when `@ViewBuilder` or a concrete return type avoids the type erasure.
+- Using `GeometryReader` as a first resort instead of trying `containerRelativeFrame` or layout-aware modifiers first.
+- Defining reusable view pieces as computed `var` properties on `View` instead of dedicated `View` structs.
+- Using the single-argument `onChange(of:perform:)` form instead of the two-parameter closure variant that receives old and new values.
 
-## iOS Version Features
-
-### iOS 17+
-- `@Observable` macro replaces `ObservableObject`
-- `@Bindable` for bindings to observable objects
-- SwiftData for persistence
-- TipKit for onboarding hints
-
-### iOS 18+
-- Enhanced SwiftData with `#Index` and `#Unique`
-- Control Center widgets
-- `@Previewable` macro for simpler previews
-
-### iOS 26+
-- Liquid Glass design system
-- New translucent materials
-- Modern Tab API
-
-## Things to Avoid
-
-1. **Force unwrapping** - Use `if let`, `guard let`, or nil coalescing
-2. **AnyView** - Use `@ViewBuilder` or concrete types
-3. **GeometryReader** - Try `containerRelativeFrame` first
-4. **UIScreen.main.bounds** - Use proper layout APIs
-5. **ObservableObject** - Use `@Observable` instead (iOS 17+)
-6. **DispatchQueue.main.async** - Use `@MainActor`
-7. **Hard-coded sizes** - Respect Dynamic Type
-8. **Computed property views** - Use separate View structs
-9. **Single-param onChange** - Use two-parameter version
-
-## Security
-
-- NEVER commit secrets, API keys, or configuration data
-- Use environment variables or secure storage
-- Follow App Store Review Guidelines

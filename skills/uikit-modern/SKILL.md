@@ -84,3 +84,5 @@ For version-specific adoption and compatibility questions, also consult `referen
 - Using keyboard notifications alone to move frames manually even though constraint-based keyboard guides are available.
 - Assuming `viewDidLoad` or app delegate callbacks fully describe runtime lifecycle in a scene-based app.
 - Replacing every `UITableView` on principle instead of only where collection-view-based modernization materially improves correctness or flexibility.
+- Reading `UIScreen.main.bounds` for layout sizing when `UIView` geometry, safe area layout guides, or trait collections should drive measurements.
+- Hard-coding point or pixel size constants instead of respecting Dynamic Type, content size categories, and system layout metrics.

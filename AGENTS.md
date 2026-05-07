@@ -22,6 +22,7 @@ Reusable Apple and iOS engineering guidance lives in `skills/` and should not be
 - New business logic should include unit-test coverage when the repository has an established place for that coverage.
 - Critical user flows should keep or gain UI-test coverage when the repository already exercises that path.
 - If the task depends on product design, prefer the existing Figma or design-source direction and do not hardcode ad hoc visual values when a design token or existing asset should be used.
+- When using CocoaPods with KuaiLiao spec sources, use `https://github.com/KuaiLiao/KLSpecs.git` as the pod source.
 
 ## 4. Security And Safety
 
@@ -29,14 +30,38 @@ Reusable Apple and iOS engineering guidance lives in `skills/` and should not be
 - When a feature touches camera, microphone, photo library, location, or similar sensitive capabilities, verify the required privacy descriptions exist.
 - Before adding a new third-party dependency, verify that its license is acceptable for the project.
 - Avoid destructive repository actions unless they are explicitly requested.
+- Follow App Store Review Guidelines when implementing features that interact with payments, user data, or platform capabilities.
 
 ## 5. Skill Routing
 
-- Use `ios-app-development` as the default entry skill for broad Apple and iOS development work.
-- Let `ios-app-development` route into the narrower specialist skills:
-  - `swift-modern`
-  - `objective-c-patterns`
-  - `uikit-modern`
-  - `project-structure-architecture`
-- Use a specialist skill directly only when the task is already clearly scoped to that domain.
-- Keep reusable language, UIKit, Objective-C, architecture, package-management, and library-selection guidance inside the skill system rather than re-expanding this file.
+This project is UIKit-first with Swift/Objective-C mixed codebases and SwiftUI used as a secondary UI layer.
+
+Route by the dominant problem shape:
+
+| Problem shape | Skill |
+| --- | --- |
+| UIKit screens, collection views, diffable data source, compositional layout, keyboard-safe layout, navigation, scenes, presentation | `uikit-modern` |
+| Objective-C ownership, blocks, runtime behavior, KVC/KVO, swizzling, forwarding, mixed-language legacy concerns | `objective-c-patterns` |
+| Swift language behavior, concurrency, Combine, Codable, observation, Swift Testing, SwiftUI screens, version-sensitive decisions | `swift-modern` |
+| Project structure, architecture selection, package strategy, dependency selection, modular boundaries | `project-structure-architecture` |
+
+Triage rules:
+
+1. Identify the dominant layer: UIKit UI, Objective-C behavior, Swift language/SwiftUI UI, or project architecture.
+2. If multiple layers are involved, name the dominant one before loading a second skill.
+3. Read the matching specialist skill before answering from memory.
+4. Load a second specialist skill only when the task genuinely spans two domains.
+5. Keep one specialist skill as the primary owner so guidance stays coherent.
+6. Keep reusable language, UIKit, Objective-C, architecture, and library-selection guidance inside the skill system rather than expanding this file.
+
+## 6. Platform Capabilities Quick Reference
+
+Key APIs introduced per iOS version. Use this to determine what is available at the project's deployment target.
+
+| iOS | Key additions |
+| --- | --- |
+| 17 | `@Observable` macro (replaces `ObservableObject`), `@Bindable`, SwiftData, TipKit |
+| 18 | SwiftData `#Index` and `#Unique`, Control Center widgets, `@Previewable` preview macro |
+| 26 | Liquid Glass design system, new translucent materials, Modern Tab API |
+
+For full per-release details, see `skills/swift-modern/references/whats-new-swift/`.

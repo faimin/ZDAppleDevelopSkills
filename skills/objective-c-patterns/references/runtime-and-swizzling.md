@@ -10,7 +10,7 @@ Use runtime APIs when reflection, dynamic inspection, or narrowly-scoped method 
 - Prefer inheritance over hook-style interception whenever a concrete superclass boundary is available.
 - Keep swizzles isolated to one file, one class, and one reason.
 - Fail closed: if the original method does not exist or the class is wrong, do not continue.
-- Keep category helpers small, prefix them with `zd_`, and avoid turning categories into hidden feature modules.
+- Keep category helpers small, prefix them with the project's category prefix, and avoid turning categories into hidden feature modules.
 
 ## Method Lookup Basics
 
@@ -18,7 +18,7 @@ Objective-C sends a selector to the receiver's class, then walks the superclass 
 
 ```objective-c
 Method originalMethod = class_getInstanceMethod(self, @selector(viewDidAppear:));
-Method replacementMethod = class_getInstanceMethod(self, @selector(zd_viewDidAppear:));
+Method replacementMethod = class_getInstanceMethod(self, @selector(xx_viewDidAppear:));
 ```
 
 ## Safe Swizzle Checklist
@@ -37,7 +37,7 @@ Method replacementMethod = class_getInstanceMethod(self, @selector(zd_viewDidApp
     dispatch_once(&onceToken, ^{
         Class cls = [self class];
         SEL originalSelector = @selector(viewDidAppear:);
-        SEL swizzledSelector = @selector(zd_viewDidAppear:);
+        SEL swizzledSelector = @selector(xx_viewDidAppear:);
 
         Method originalMethod = class_getInstanceMethod(cls, originalSelector);
         Method swizzledMethod = class_getInstanceMethod(cls, swizzledSelector);
@@ -59,9 +59,9 @@ Method replacementMethod = class_getInstanceMethod(self, @selector(zd_viewDidApp
     });
 }
 
-- (void)zd_viewDidAppear:(BOOL)animated {
-    [self zd_viewDidAppear:animated];
-    [self zd_trackAppearance];
+- (void)xx_viewDidAppear:(BOOL)animated {
+    [self xx_viewDidAppear:animated];
+    [self xx_trackAppearance];
 }
 ```
 
@@ -78,9 +78,9 @@ This pattern is safer when the original method comes from a superclass because i
 Associated objects are best for small, local metadata where subclassing is not possible. They become risky when used to bolt lifecycle-sensitive state onto UIKit objects you do not own.
 
 ```objective-c
-static const void *ZDStateKey = &ZDStateKey;
+static const void *XXStateKey = &XXStateKey;
 
-objc_setAssociatedObject(viewController, ZDStateKey, tracker, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+objc_setAssociatedObject(viewController, XXStateKey, tracker, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 ```
 
 Risks to call out:

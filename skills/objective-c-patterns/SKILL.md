@@ -24,7 +24,7 @@ Start with the router, then open only the references needed for the current ques
 - Treat retain cycles as ownership design bugs, not cleanup chores.
 - Prefer inheritance, composition, or explicit integration points before any hook or swizzle.
 - Use swizzling only when a direct override, wrapper, delegate, or explicit integration point is unavailable.
-- Prefix category APIs with `zd_`, keep categories lightweight, and move complex stateful logic into real classes.
+- Prefix category APIs with a project-specific abbreviation (e.g. `xx_`), keep categories lightweight, and move complex stateful logic into real classes.
 - Prefix private methods with `_`.
 - Group methods with `#pragma mark -` and split very large implementations into focused categories when it improves readability.
 - Place `- (void)dealloc` near the top of `@implementation` so teardown stays visible during reviews.
