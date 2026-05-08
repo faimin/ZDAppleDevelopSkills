@@ -1,71 +1,57 @@
 # AppleDevelopSKILLS
 
-iOS development AI agent skills collection
+iOS development AI agent skills for UIKit-first, Swift/Objective-C mixed projects.
 
-## 自建 iOS Skills 使用说明
+## 安装
 
-当前仓库内置的 iOS Skills 位于 `skills/`，建议把它们理解为一套分层路由：
+### 方式一：AgentSkills CLI（推荐）
 
-- `ios-app-development`：总入口 Skill
-- `swift-modern`：现代 Swift 语言与应用代码
-- `objective-c-patterns`：Objective-C 语言特性与遗留模块模式
-- `uikit-modern`：UIKit 页面与列表现代化
-- `project-structure-architecture`：工程结构、架构、包管理与三方库选型
+```bash
+agentskills install faimin/ZDAppleDevelopSkills
+```
 
-### 1. `ios-app-development`
+### 方式二：手动安装（Claude Code）
 
-这是默认入口 Skill。只要需求是比较宽泛的 iOS 开发任务，优先让它先触发。
+```bash
+# 克隆仓库
+git clone https://github.com/faimin/ZDAppleDevelopSkills
 
-适用场景：
+# 复制到 Claude Code 全局 skills 目录
+cp -r ZDAppleDevelopSkills/skills/* ~/.claude/skills/
+```
 
-- “做一个 iOS 页面 / 功能 / 模块”
-- “重构一个 iOS 需求”
-- “review 这个 iOS 项目改动”
-- “这段 Swift / Objective-C / UIKit 代码该怎么拆”
-- “这个 iOS 工程结构应该怎么设计”
+### 方式三：软链接（跟随仓库更新，git pull 即生效）
 
-它本身不提供大段技术细节，主要负责把问题继续路由到更具体的 specialist skill。
+```bash
+git clone https://github.com/faimin/ZDAppleDevelopSkills ~/ZDAppleDevelopSkills
 
-### 2. `swift-modern`
+for skill in uikit-modern objective-c-patterns swift-modern project-structure-architecture; do
+    ln -sf ~/ZDAppleDevelopSkills/skills/$skill ~/.claude/skills/$skill
+done
+```
 
-这个 Skill 用来处理 Swift `4.2-6.3` 范围内的现代 Swift 开发问题。
+## 使用方式
 
-适用场景：
+Skills 在 Claude Code 处理匹配任务时自动加载。也可在对话中通过 `Skill` 工具显式触发：
 
-- Swift 语法升级、迁移、版本差异
-- `async/await`、actor、`Sendable`、并发隔离
-- Combine、Codable、`@Observable`
-- Swift Testing
-- Swift 与 Objective-C 互操作
-- SwiftUI-first 的状态与 UI ownership 问题
+| 任务方向 | Skill |
+| --- | --- |
+| UIKit 页面 / 列表 / 键盘 / 导航 | `uikit-modern` |
+| Objective-C / block / runtime / 混编 | `objective-c-patterns` |
+| Swift 语言 / 并发 / Combine / SwiftUI | `swift-modern` |
+| 架构 / 目录结构 / 包管理 / 三方库 | `project-structure-architecture` |
 
-典型提问方式：
+路由规则详见 `AGENTS.md` Section 5。
 
-- “这段 Swift 代码应该用 Concurrency 还是 Combine？”
-- “Swift 6 下这个 `Sendable` 报错怎么处理？”
-- “Codable 同时兼容 `String` 和 `Int` 怎么建模？”
+---
 
-### 3. `objective-c-patterns`
+## Skills 说明
 
-这个 Skill 用来处理 Objective-C 语言与传统 iOS 模块中的核心模式问题。
+当前仓库内置 4 个 iOS Skills，位于 `skills/`：
 
-适用场景：
+### 1. `uikit-modern`
 
-- block、ARC、循环引用、`EXC_BAD_ACCESS`
-- runtime、swizzle、forwarding、associated object
-- category 设计边界
-- KVC / KVO
-- Objective-C 与 Swift 混编边界
-
-典型提问方式：
-
-- “这个 block 为什么会循环引用？”
-- “这里要不要 swizzle？”
-- “category 里放这段逻辑合适吗？”
-
-### 4. `uikit-modern`
-
-这个 Skill 聚焦 UIKit，尤其是 iOS 13 之后的现代 UIKit 写法。
+聚焦 UIKit，尤其是 iOS 13 之后的现代 UIKit 写法。
 
 适用场景：
 
@@ -78,51 +64,73 @@ iOS development AI agent skills collection
 
 典型提问方式：
 
-- “这个列表页该用 `UITableView` 还是 `UICollectionView`？”
-- “如何把旧的 `reloadData` 改成 diffable data source？”
-- “键盘遮挡输入框怎么用新 API 处理？”
+- "这个列表页该用 `UITableView` 还是 `UICollectionView`？"
+- "如何把旧的 `reloadData` 改成 diffable data source？"
+- "键盘遮挡输入框怎么用新 API 处理？"
 
-### 5. `project-structure-architecture`
+### 2. `objective-c-patterns`
 
-这个 Skill 负责工程层面的决策，而不是单个页面或单段代码。
+处理 Objective-C 语言与传统 iOS 模块中的核心模式问题。
+
+适用场景：
+
+- block、ARC、循环引用、`EXC_BAD_ACCESS`
+- runtime、swizzle、forwarding、associated object
+- category 设计边界
+- KVC / KVO / ReactiveObjC (RAC)
+- Objective-C 与 Swift 混编边界
+- ObjC 编码规范（getter 写法、`({})` 初始化、delegate 防护）
+
+典型提问方式：
+
+- "这个 block 为什么会循环引用？"
+- "这里要不要 swizzle？"
+- "category 里放这段逻辑合适吗？"
+
+### 3. `swift-modern`
+
+处理 Swift 4.2–6.x 范围内的现代 Swift 开发问题。
+
+适用场景：
+
+- Swift 语法升级、迁移、版本差异
+- `async/await`、actor、`Sendable`、并发隔离
+- Combine、Codable、`@Observable`
+- Swift Testing
+- Swift 与 Objective-C 互操作
+- SwiftUI-first 的状态与 UI ownership 问题
+
+典型提问方式：
+
+- "这段 Swift 代码应该用 Concurrency 还是 Combine？"
+- "Swift 6 下这个 `Sendable` 报错怎么处理？"
+- "Codable 同时兼容 `String` 和 `Int` 怎么建模？"
+
+### 4. `project-structure-architecture`
+
+负责工程层面的决策。
 
 适用场景：
 
 - 工程目录结构设计
 - Feature-first 分层
-- MVVM / MVI / TCA / Redux 选型
+- MVVM / MVI（页面级）/ TCA（应用级）选型
 - SPM / CocoaPods 选择
 - 三方库选型
-- 模块边界、资源 bundle、国际化 `.xcstrings`
+- 模块边界、资源 bundle
 
 典型提问方式：
 
-- “这个 iOS 工程应该怎么分目录？”
-- “这个模块适合 MVVM 还是 TCA？”
-- “SPM 和 CocoaPods 这里该怎么选？”
-
-### 推荐使用方式
-
-如果你不确定某个问题该命中哪个 Skill，优先走：
-
-1. `ios-app-development`
-2. 再由它路由到下面四个 specialist skills
-
-如果问题本身已经非常明确，也可以直接命中对应 Skill：
-
-- 语言 / 并发 / Codable / Combine / SwiftUI 状态：`swift-modern`
-- Objective-C / block / runtime / 混编：`objective-c-patterns`
-- UIKit 页面 / 列表 / 键盘 / 导航：`uikit-modern`
-- 架构 / 目录 / 包管理 / 三方库：`project-structure-architecture`
+- "这个 iOS 工程应该怎么分目录？"
+- "这个模块适合 MVVM 还是 MVI？"
+- "SPM 和 CocoaPods 这里该怎么选？"
 
 ### 与 `AGENTS.md` 的分工
 
-当前仓库里的职责边界是：
-
-- `AGENTS.md`：仓库级规则、工作流、安全约束、测试要求、Skill 路由规则
+- `AGENTS.md`：仓库级规则、工作流、安全约束、Skill 路由规则、平台能力参考
 - `skills/`：可复用的 Apple / iOS 领域知识与决策规则
 
-换句话说，通用 iOS 规范不要继续堆回 `AGENTS.md`，优先沉淀到对应 Skill 里。
+通用 iOS 规范沉淀到对应 Skill，不要堆回 `AGENTS.md`。
 
 ------
 ------

@@ -26,6 +26,10 @@ Start with the router, then open only the references needed for the current ques
 - Use swizzling only when a direct override, wrapper, delegate, or explicit integration point is unavailable.
 - Prefix category APIs with a project-specific abbreviation (e.g. `xx_`), keep categories lightweight, and move complex stateful logic into real classes.
 - Prefix private methods with `_`.
+- In getter methods, build the object into a local variable and assign `_ivar` as the final statement; see `references/coding-conventions.md`.
+- Wrap multi-property object initialization in a `({ })` statement expression to group creation and configuration; see `references/coding-conventions.md`.
+- Check `respondsToSelector:` before invoking any optional delegate method; see `references/coding-conventions.md`.
+- Prefer `RACObserve` over raw KVO when the project depends on `ReactiveObjC`; see `references/kvc-kvo-and-associations.md`.
 - Group methods with `#pragma mark -` and split very large implementations into focused categories when it improves readability.
 - Place `- (void)dealloc` near the top of `@implementation` so teardown stays visible during reviews.
 - Guard uncertain collection indexing before subscripting, and prefer `firstObject` or `lastObject` for boundary access.
@@ -43,7 +47,8 @@ Consult the matching reference before giving implementation advice:
 | Blocks, captures, ARC ownership | `references/blocks-and-memory.md` |
 | Runtime APIs and swizzling | `references/runtime-and-swizzling.md` |
 | Forwarding and dynamic dispatch | `references/message-forwarding.md` |
-| KVC, KVO, associations | `references/kvc-kvo-and-associations.md` |
+| KVC, KVO, RAC observation | `references/kvc-kvo-and-associations.md` |
+| Coding conventions, getter patterns, delegate guards | `references/coding-conventions.md` |
 | Queues, locks, legacy async work | `references/threading-and-gcd.md` |
 | Swift bridging boundaries | `references/objc-swift-interop.md` |
 | Crash and leak triage | `references/diagnostics.md` |

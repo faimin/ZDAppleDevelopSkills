@@ -82,6 +82,19 @@ Subclassing or a wrapper object is cleaner than association when:
 - The behavior needs setup and teardown hooks
 - The attached object starts looking like a hidden controller
 
+## ReactiveObjC (RAC) as a KVO Alternative
+
+When the project depends on `ReactiveObjC`, prefer `RACObserve` over raw KVO registration. RAC manages observer lifetime automatically and eliminates the `-observeValueForKeyPath:ofObject:change:context:` boilerplate.
+
+See `references/coding-conventions.md` for the full usage pattern and a comparison with raw KVO.
+
+Use raw KVO only when:
+- `ReactiveObjC` is not available
+- the observed property is on an object you do not own and RAC cannot be applied
+- the observation must survive beyond the subscriber's lifecycle (unusual)
+
+When raw KVO is unavoidable, always pair `-addObserver:forKeyPath:options:context:` and `-removeObserver:forKeyPath:context:` at symmetric lifecycle points and use a unique context pointer rather than string comparison alone.
+
 ## Common Traps
 
 - Using KVC strings that drift out of sync during refactors
