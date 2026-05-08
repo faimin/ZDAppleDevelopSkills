@@ -2,6 +2,39 @@
 
 iOS development AI agent skills for UIKit-first, Swift/Objective-C mixed projects.
 
+## 在 iOS 项目中让所有 AI 自动使用这些 Skills
+
+`AGENTS.md` 是 Claude、Codex、Gemini 等主流 AI 编程工具共同读取的项目配置文件。在 iOS 项目根目录放置一份即可，所有 Agent 都会自动加载 iOS skill 路由规则。
+
+### 一键初始化（推荐）
+
+```bash
+# 在任意 iOS 项目根目录执行
+~/ZDAppleDevelopSkills/scripts/init-ios-project.sh
+# 或指定路径
+~/ZDAppleDevelopSkills/scripts/init-ios-project.sh ~/MyApp
+```
+
+脚本会检测是否为 iOS 项目（`.xcodeproj` / `.xcworkspace` / `Podfile` / `Package.swift`），然后将 `templates/ios-project/AGENTS.md` 复制到目标目录。
+
+### 手动复制
+
+```bash
+cp ~/ZDAppleDevelopSkills/templates/ios-project/AGENTS.md /path/to/your/ios/project/
+```
+
+### 只针对 Claude Code（单 Agent）
+
+在 `~/.claude/CLAUDE.md` 末尾追加：
+
+```markdown
+## iOS Project Skills
+When the working directory is an iOS project (contains .xcodeproj, .xcworkspace, Podfile, or .swift/.m files),
+proactively invoke the relevant skills: uikit-modern, objective-c-patterns, swift-modern, project-structure-architecture.
+```
+
+---
+
 ## 安装
 
 ### 方式一：AgentSkills CLI（推荐）
