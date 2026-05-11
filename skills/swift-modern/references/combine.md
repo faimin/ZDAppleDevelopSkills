@@ -53,6 +53,37 @@ service.publisher(for: request)
 - Use `[weak self]` when the pipeline should not keep the owner alive indefinitely.
 - Avoid weak captures when the owner must remain alive for correctness; redesign the ownership boundary instead of guessing.
 
+### `assign(to:on:)` vs `assign(to: &$property)`
+
+`assign(to:on:)` holds a **strong reference** to the `on:` parameter. When the subscription is stored in the same object's `cancellables`, a retain cycle forms:
+
+```
+self → cancellables → AnyCancellable → Assign subscriber → self
+```
+
+**Wrong — creates retain cycle:**
+```swift
+manager.$playlist
+    .assign(to: \.playlist, on: self)
+    .store(in: &cancellables)
+```
+
+**Correct — no retain cycle (iOS 14+):**
+```swift
+manager.$playlist.assign(to: &$playlist)
+```
+
+Key differences:
+
+| | `assign(to:on:)` | `assign(to: &$property)` |
+|---|---|---|
+| Returns | `AnyCancellable` (must store) | `Void` (no storage needed) |
+| Reference to target | **Strong** | None (bound to `@Published` lifetime) |
+| Retain cycle risk | Yes | No |
+| Cancellation | Manual cancel or cancellables dealloc | Auto-cancels when `@Published` owner deallocates |
+
+**Rule:** When assigning to a `@Published` property on `self`, always use `assign(to: &$property)`. Reserve `assign(to:on:)` only for assigning to a different object where the strong reference is intentional and the lifetime is well-understood.
+
 ## Bridging Combine to async sequences
 Prefer a direct async API for new code, but when you already have a publisher, bridge it carefully.
 
@@ -84,4 +115,5 @@ func values<P: Publisher>(from publisher: P) -> AsyncThrowingStream<P.Output, Er
 - Creating a pipeline in a local scope and losing the `AnyCancellable` immediately.
 - Assuming upstream work runs on the same scheduler as downstream delivery.
 - Capturing `self` strongly in long-lived pipelines without realizing the owner can never deallocate.
+- Using `assign(to:on: self)` + `store(in: &cancellables)` instead of `assign(to: &$property)`, silently creating a retain cycle that prevents deallocation.
 - Using Combine for simple request-response work that would be clearer as `async throws`.

@@ -63,6 +63,7 @@ description: Use when writing, reviewing, or migrating Swift application code ac
 - `Sending 'x' risks causing data races`: check `references/concurrency.md` and `references/diagnostics.md`.
 - UI state updates from background work or mixed isolation: check `references/concurrency.md` and `references/observation-and-state.md`.
 - Combine output arrives on the wrong thread or stops early: check `references/combine.md` and `references/diagnostics.md`.
+- ViewModel or object using `assign(to:on:)` never deallocates: check `references/combine.md` "assign(to:on:) vs assign(to: &$property)" section.
 - `DecodingError.keyNotFound`, `typeMismatch`, or inconsistent payloads: check `references/codable.md` and `references/diagnostics.md`.
 - Unsure whether to use `@objc`, `dynamic`, or a Swift wrapper: check `references/interoperability.md`.
 - Unsure whether a new Swift test should use `@Test`, `#expect`, parameterization, or async actor-aware patterns: check `references/swift-testing.md`.
@@ -76,6 +77,7 @@ description: Use when writing, reviewing, or migrating Swift application code ac
 - Decoding complex payloads into `[String: Any]` before modeling a resilient `Codable` enum or wrapper.
 - Bridging Objective-C callbacks into async code without single-resume guarantees, cancellation handling, or queue expectations.
 - Marking whole types `@objcMembers` when only a few selectors must cross the Objective-C boundary.
+- Using `assign(to:on: self)` + `store(in: &cancellables)` when `assign(to: &$property)` avoids the retain cycle entirely.
 - Leaving non-polymorphic classes open and indexing directly into collections without making the safety contract explicit.
 - Wrapping view expressions in `AnyView` when `@ViewBuilder` or a concrete return type avoids the type erasure.
 - Using `GeometryReader` as a first resort instead of trying `containerRelativeFrame` or layout-aware modifiers first.
