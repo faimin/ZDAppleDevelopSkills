@@ -180,28 +180,40 @@ Skills 在 Claude Code 处理匹配任务时自动加载。也可在对话中通
 
 ## MCP
 
+- [cupertino](https://github.com/mihaelamj/cupertino) ： 本地苹果官方文档MCP
 - [apple-docs-mcp](https://github.com/kimsungwhee/apple-docs-mcp): 苹果官方文档MCP
 - [string-catalog-mcp](https://github.com/onmyway133/string-catalog-mcp): Xcode国际化
 - [lanhu-mcp](https://github.com/MrDgbot/lanhu-mcp)
 
 ## SKILLS
 
+### 工程Skill
+
 - [superpowers](https://github.com/obra/superpowers): 一套行之有效的软件开发方法论
+- [Trellis](https://github.com/mindfold-ai/Trellis): superpowers轻量替代品
 - [gstack](https://github.com/garrytan/gstack)
 - [Get Shit Done](https://github.com/gsd-build/get-shit-done): 项目管理系统，快速创建一个项目
 - [gsd-sp-enhancement](https://github.com/yiixiahulun/gsd-sp-enhancement)
 - [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills)
 
+### UI Skill
+
 - [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill): 让AI写出来的UI更美观
+
+### Tools Skill
+
+- [app-store-connect-cli-skills](https://github.com/rudrankriyam/app-store-connect-cli-skills)
+- [xcode-cli-skill](https://github.com/dazuiba/xcode-cli-skill): Xcode CLI Agent技能
+
+### 开发Skill
+
+- [swift-ios-skills](https://github.com/dpearson2699/swift-ios-skills): iOS开发skills
+- [ios-dev-skills](https://github.com/12207480/ios-dev-skills)
 - [Super Skills](https://github.com/onmyway133/skills)
 - [Swift-UIKit-Skill](https://github.com/Lakr233/Swift-UIKit-Skill)
-- [MixMax Skills](https://github.com/MiniMax-AI/skills)
-----
-- [app-store-connect-cli-skills](https://github.com/rudrankriyam/app-store-connect-cli-skills)
-----
-- [ios-dev-skills](https://github.com/12207480/ios-dev-skills)
 - [Swift-Concurrency-Agent-Skill](https://github.com/AvdLee/Swift-Concurrency-Agent-Skill): Swift并发编程Agent技能
 - [SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill): SwiftUI Agent技能
 - [SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill): SwiftUI Agent技能
-- [xcode-cli-skill](https://github.com/dazuiba/xcode-cli-skill): Xcode CLI Agent技能
 - [dotclaude](https://github.com/FradSer/dotclaude)
+- [MixMax Skills](https://github.com/MiniMax-AI/skills)
+- [zipic skill](https://github.com/okooo5km/Skills4U/tree/main/skills/zipic)
