@@ -48,7 +48,7 @@ self.stackView = ({
 });
 ```
 
-Use in `viewDidLoad` or property declarations where grouping creation with configuration improves clarity. Do not use for objects whose creation involves conditional logic — a regular `if`/`else` block is clearer there.
+Use anywhere an object is created and immediately configured with multiple properties. Do not use for objects whose creation involves conditional logic — a regular `if`/`else` block is clearer there.
 
 ## Prefer RAC Over KVO When ReactiveObjC Is Available
 
