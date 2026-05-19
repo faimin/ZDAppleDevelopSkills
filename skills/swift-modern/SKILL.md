@@ -22,6 +22,7 @@ description: Use when writing, reviewing, or migrating Swift application code ac
 - Prefer Combine over KVO for new reactive observation in app code when Objective-C runtime observation is not required.
 - Treat `Sendable`, actor isolation, and cancellation as correctness constraints, not style advice.
 - Prefer explicit ownership and typed models over `Any`, mutable globals, or stringly typed state.
+- Wrap multi-property object initialization in an immediately-invoked closure `{ ... }()` to co-locate creation and configuration.
 - Mark classes `final` when they are not designed for inheritance.
 - Split large types into focused `extension` blocks by responsibility instead of keeping every method in one body.
 - Prefer targeted `@objc` annotations over `@objcMembers` unless nearly the entire type must be Objective-C-visible.
