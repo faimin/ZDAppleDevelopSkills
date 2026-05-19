@@ -37,6 +37,7 @@ Load the matching skill first, then answer. For tasks that span multiple areas, 
 
 ## Code Conventions
 
+- When modifying code, only make changes directly related to the request. Do not auto-format, restyle, or refactor surrounding code that was not asked to be changed.
 - Category methods must use the project's prefix (e.g. `xx_`), not a hardcoded abbreviation.
 - In Objective-C getters, build the object into a local variable and assign `_ivar` last.
 - Wrap multi-property Objective-C object initialization in `({ })` statement expressions.
