@@ -214,6 +214,7 @@ Skills 在 Claude Code 处理匹配任务时自动加载。也可在对话中通
 - [Swift-Concurrency-Agent-Skill](https://github.com/AvdLee/Swift-Concurrency-Agent-Skill): Swift并发编程Agent技能
 - [SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill): SwiftUI Agent技能
 - [SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill): SwiftUI Agent技能
+- [UIKit-Agent-Skill](https://github.com/tornikegomareli/UIKit-Agent-Skill)
 - [dotclaude](https://github.com/FradSer/dotclaude)
 - [MixMax Skills](https://github.com/MiniMax-AI/skills)
 - [zipic skill](https://github.com/okooo5km/Skills4U/tree/main/skills/zipic)
