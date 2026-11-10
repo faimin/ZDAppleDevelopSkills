@@ -183,7 +183,7 @@ Skills 在 Claude Code 处理匹配任务时自动加载。也可在对话中通
 - [cupertino](https://github.com/mihaelamj/cupertino) ： 本地苹果官方文档MCP
 - [apple-docs-mcp](https://github.com/kimsungwhee/apple-docs-mcp): 苹果官方文档MCP
 - [string-catalog-mcp](https://github.com/onmyway133/string-catalog-mcp): Xcode国际化
-- [lanhu-mcp](https://github.com/MrDgbot/lanhu-mcp)
+- [lanhu-context-mcp](https://github.com/refinist/lanhu-context-mcp)
 
 ## SKILLS
 
